@@ -1,7 +1,5 @@
 package ru.netology.tests;
 
-import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,24 +16,23 @@ import static ru.netology.utils.DataGenerator.createRegisteredUser;
 public class CardDeliveryTest extends BaseTest {
 
     private AuthPage authPage;
-    private DashBoardPage dashBoardPage;
 
     @BeforeEach
     public void openMainPage() {
-        dashBoardPage = new DashBoardPage();
         authPage = new AuthPage();
-        authPage.open();
     }
 
     @Test
     @DisplayName("Проверка входа зарегистрированным пользователем")
     public void shouldLoginRegisteredUser() {
         User user = createRegisteredUser("active");
+        DashBoardPage dashBoardPage = new DashBoardPage();
+
         authPage
                 .setLogin(user.getLogin())
                 .setPassword(user.getPassword())
                 .clickSubmitButton();
-        dashBoardPage.shouldBeVisible();
+       dashBoardPage.shouldBeVisible();
     }
 
     @Test
@@ -76,12 +73,6 @@ public class CardDeliveryTest extends BaseTest {
                 .clickSubmitButton()
                 .errorNotificationShouldHaveText(WRONG_USERNAME_OR_PASSWORD.getValue());
 
-    }
-
-
-    @AfterEach
-    public void tearDown() {
-        Selenide.closeWebDriver();
     }
 
 }

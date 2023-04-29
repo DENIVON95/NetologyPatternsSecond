@@ -18,10 +18,9 @@ public class AuthPage {
 
 
 
-    public AuthPage open() {
+    public AuthPage() {
         Selenide.open("/");
         mainElement.shouldBe(visible);
-        return this;
     }
 
 
