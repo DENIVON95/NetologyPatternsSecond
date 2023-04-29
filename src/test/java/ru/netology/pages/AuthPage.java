@@ -39,11 +39,10 @@ public class AuthPage {
     }
 
 
-    public AuthPage clickSubmitButton() {
+    public void clickSubmitButton() {
         submitButton
                 .should(visible)
                 .click();
-        return this;
     }
 
     public AuthPage errorNotificationShouldHaveText(String errorText){

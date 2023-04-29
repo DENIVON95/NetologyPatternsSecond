@@ -32,7 +32,7 @@ public class CardDeliveryTest extends BaseTest {
                 .setLogin(user.getLogin())
                 .setPassword(user.getPassword())
                 .clickSubmitButton();
-       dashBoardPage.shouldBeVisible();
+        dashBoardPage.shouldBeVisible();
     }
 
     @Test
@@ -42,8 +42,8 @@ public class CardDeliveryTest extends BaseTest {
         authPage
                 .setLogin(user.getLogin())
                 .setPassword(user.getPassword())
-                .clickSubmitButton()
-                .errorNotificationShouldHaveText(WRONG_USERNAME_OR_PASSWORD.getValue());
+                .clickSubmitButton();
+        authPage.errorNotificationShouldHaveText(WRONG_USERNAME_OR_PASSWORD.getValue());
     }
 
     @Test
@@ -54,9 +54,8 @@ public class CardDeliveryTest extends BaseTest {
         authPage
                 .setLogin(user.getLogin())
                 .setPassword(user.getPassword())
-                .clickSubmitButton()
-                .errorNotificationShouldHaveText(USER_BLOCKED.getValue());
-
+                .clickSubmitButton();
+        authPage.errorNotificationShouldHaveText(USER_BLOCKED.getValue());
 
     }
 
@@ -70,8 +69,8 @@ public class CardDeliveryTest extends BaseTest {
         authPage
                 .setLogin(user.getLogin())
                 .setPassword(user.getPassword())
-                .clickSubmitButton()
-                .errorNotificationShouldHaveText(WRONG_USERNAME_OR_PASSWORD.getValue());
+                .clickSubmitButton();
+        authPage.errorNotificationShouldHaveText(WRONG_USERNAME_OR_PASSWORD.getValue());
 
     }
 
