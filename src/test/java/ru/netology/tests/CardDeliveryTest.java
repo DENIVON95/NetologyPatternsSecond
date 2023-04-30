@@ -26,13 +26,12 @@ public class CardDeliveryTest extends BaseTest {
     @DisplayName("Проверка входа зарегистрированным пользователем")
     public void shouldLoginRegisteredUser() {
         User user = createRegisteredUser("active");
-        DashBoardPage dashBoardPage = new DashBoardPage();
 
         authPage
                 .setLogin(user.getLogin())
                 .setPassword(user.getPassword())
                 .clickSubmitButton();
-        dashBoardPage.shouldBeVisible();
+        new DashBoardPage().shouldBeVisible();
     }
 
     @Test
